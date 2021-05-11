@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components'
 import ProgressBar from './ProgressBar.js'
 import { makeStyles } from '@material-ui/core/styles';
+import AddAPhotoRoundedIcon from '@material-ui/icons/AddAPhotoRounded';
 import Button from '@material-ui/core/Button';
 
 function UploadForm() {
@@ -46,8 +47,9 @@ function UploadForm() {
         id="contained-button-file"
         multiple
          onChange={handleChange} />
-        <Button size="large" variant="contained" color="primary" component="span" >
-          Upload
+        <Button size="large" variant="contained" color="primary" component="span" 
+        style={{borderRadius:'50px', border:'2px solid white'}}>
+         <span> < AddAPhotoRoundedIcon style={{fontSize:'30px'}} /></span>
         </Button>
         
         </label>
@@ -87,21 +89,17 @@ const FormGroup = styled.div`
         align-items:center;
     }
    
-    /*span {
+span {
+    display:flex;
+    align-items:center;
+    justify-content:center;
     font-weight: bold;
-    color:white;
-    background-color: #0063e5;
     width: 100%;
-    margin-top:15px;
     letter-spacing: 1.5px;
-    font-size: 20px;
-    padding : 15px 20px 15px 20px ;
-    border: 1px solid transparent;
-    border-radius: 50%;
     &:hover {
         background-color: #0483ee;
     }     
-   }*/
+   }
 `;
 
 const ErrorDisplay = styled.div`

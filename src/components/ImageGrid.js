@@ -1,40 +1,40 @@
 import React from 'react'
 import styled from 'styled-components';
 import UseFirestore from './UseFirestone';
+import { motion } from 'framer-motion'
 
-const ImageGrid = (/*{ setSelectedImg }*/) => {
-        const { docs } = UseFirestore('images');
-    return (
-        <Row>
-            {docs && docs.map(doc => (
-        <Column key={doc.id} /*onClick={() => setSelectedImg(doc.url)}*/>
-          <img src={doc.url} alt="uploaded pic"/>
-        </Column>
+const ImageGrid = ({ setSelectedImg }) => {
+  const { docs } = UseFirestore('images');
+  return (
+    <Row>
+      {docs && docs.map(doc => (
+        
+          <Column  as={motion.div} key={doc.id} layout whileHover = {{opacity:2}} onClick={() => setSelectedImg(doc.url)}>
+            <motion.img src={doc.url} alt="uploaded pic"
+            initial = {{opacity:0}}
+            animate = {{opacity:1}}
+            transition = {{delay:1}} />
+          </Column>
+       
       ))}
-        </Row>
-    )
+    </Row>
+  )
 }
 
-const Row = styled.section`
+const Row = styled.section`  
   
   //flex-wrap: wrap;
   
   
-  padding: 0;
+  padding: 30px;
   margin-top:20px;
   display: grid;
-  grid-template-columns: 20fr 20fr 20fr 20fr 20fr;
-  grid-gap: 20px;
+  grid-template-columns: 5fr 5fr 5fr 5fr ;
+  grid-gap: 50px;
 
 `;
 
-const Column = styled.section`
-  //::before  flex: 25%;
-  //::beforemax-width: 25%;
-  //::beforepadding: 0 4px;
-  
-
-
+const Column = styled(motion.div)`   
   overflow: hidden;
   height: 0;
   padding: 50% 0;
@@ -43,10 +43,7 @@ const Column = styled.section`
   opacity: 0.8;
 
   img{
-  //  margin-top: 8px;
-  //vertical-align: middle;
-  //width: 100%;
-
+  border: 10px  black;
   min-width: 100%;
   min-height: 100%;
   max-width: 150%;

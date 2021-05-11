@@ -16,7 +16,7 @@ function UseStorage(file) {
             setProgress(percenage);
         }, (err) => {
             setError(err);
-        }, async () => {
+        }, async () => {    //async for fetching data
             const url = await storageRef.getDownloadURL();
             const createdAt = timestamp();
             await collectionRef.add({ url, createdAt });

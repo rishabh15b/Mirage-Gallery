@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import styled from 'styled-components';
 import UseStorage from './UseStorage'
+import {motion} from 'framer-motion'
 
 
 function ProgressBar({ file, setFile }) {
@@ -14,15 +15,17 @@ function ProgressBar({ file, setFile }) {
       }, [url, setFile]);
     
     return (
-        <Bar style={{width: progress + '%'}}> 
+        <Bar as={motion.div} 
+          initial={{width:0}}
+          animate={{width: progress + '%'}}> 
          <span>{progress.toFixed(0)+'%'}</span>
         </Bar>
     )
 }
 
-const Bar = styled.div`
+const Bar = styled(motion.div)`
     height:22px;
-    background:orange;
+    background:white;
     border-radius:11px;
     span{
       display:flex;

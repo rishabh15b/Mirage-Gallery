@@ -1,19 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components";
 import UploadForm from './UploadForm';
 import ImageGrid from './ImageGrid';
+import Modal from './Modal';
 function MainPage() {
+
+    const [selectedImg, setSelectedImg] = useState(null);
     return (
         <Container>
             <Content>
                 <HeadingLine>
-                    PHOTO GALLERY
+                    <SubMain>
+                    Photo Gallery
+                    </SubMain>
                     <Description>
                         Mirage the official photography and video editing club of IET Lucknow.
                     </Description>
                 </HeadingLine>
                 <UploadForm/>
-                <ImageGrid />
+                <ImageGrid setSelectedImg = {setSelectedImg}/>
+                { selectedImg && <Modal selectedImg = {selectedImg} setSelectedImg = {setSelectedImg} /> }
             </Content>
         </Container>
     )
@@ -25,6 +31,7 @@ const Container = styled.section`
     flex-direction: column;
     text-align: center;
     height: 100vh;
+    background-color:black;
     
 `;
 
@@ -43,6 +50,11 @@ const Content = styled.div`
 const HeadingLine = styled.div`
     margin-top:20px;
     font-size:50px;
+    color:white;
+`;
+const SubMain = styled.div`
+    font-family:CustomFont;
+    
 `;
 
 const Description = styled.p`

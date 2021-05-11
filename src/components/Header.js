@@ -12,7 +12,7 @@ function Header() {
           MIRAGE
       </NavHeadingMain>
       <NavHeadingSub>
-         IET LUCKNOW
+           IET LUCKNOW
       </NavHeadingSub>
       </NavHeading>
       <Login >
@@ -28,11 +28,13 @@ const Nav = styled.nav`
     left:0;
     right:0;
     height:100px;
-    background-color: #090b13;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,55,29,1) 50%, rgba(252,176,69,1) 100%);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:60px 60px;
+    
+    padding:10px 60px;
     color: hsl(0,0%,95.3%,1);
     letter-spacing:10px;
     z-index:3;
@@ -42,8 +44,8 @@ const Nav = styled.nav`
 const Logo = styled.a`
     padding:0;
     margin-top:-2px;
-    width:140px;
-    height:140px;
+    width:90px;
+    height:90px;
     font-size:0;
     display:inline-block;
     margin-left:-20px;
@@ -74,12 +76,11 @@ const NavHeadingMain = styled.div`
 const NavHeadingSub = styled.div`
     color:white;
     margin-top:5px;
-    font-size:25px;
-    
+    font-size:15px;
 `; 
 
 const Login = styled.div`
-    font-size:24px;
+    font-size:16px;
     background-color: rgb(0,0,0,0.6);
     padding: 8px 16px;
     margin-right:-15px;
