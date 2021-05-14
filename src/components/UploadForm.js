@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import styled from 'styled-components'
 import ProgressBar from './ProgressBar.js'
 import { makeStyles } from '@material-ui/core/styles';
 import AddAPhotoRoundedIcon from '@material-ui/icons/AddAPhotoRounded';
 import Button from '@material-ui/core/Button';
+import {  useSelector } from "react-redux";
+import { selectUserName } from "./userSlice";
 
 function UploadForm() {
+
+    const userName = useSelector(selectUserName);
+
+    useEffect(() => {
+    },[userName]);
+
 
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
@@ -47,7 +55,7 @@ function UploadForm() {
         id="contained-button-file"
         multiple
          onChange={handleChange} />
-        <Button size="large" variant="contained" color="primary" component="span" 
+        <Button variant="contained" color="primary" component="span" 
         style={{borderRadius:'50px', border:'2px solid white'}}>
          <span> < AddAPhotoRoundedIcon style={{fontSize:'30px'}} /></span>
         </Button>
@@ -81,14 +89,7 @@ const FormGroup = styled.div`
     height: 0;
     width: 0;
     opacity: 0;
-    }
-    img{
-      
-     
-        justify-content:center;
-        align-items:center;
-    }
-   
+    }   
 span {
     display:flex;
     align-items:center;

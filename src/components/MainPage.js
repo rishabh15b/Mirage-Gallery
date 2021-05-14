@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import styled from "styled-components";
-import UploadForm from './UploadForm';
+//import UploadForm from './UploadForm';
 import ImageGrid from './ImageGrid';
 import Modal from './Modal';
+import Footer from './Footer';
 function MainPage() {
 
     const [selectedImg, setSelectedImg] = useState(null);
@@ -17,10 +18,11 @@ function MainPage() {
                         Mirage the official photography and video editing club of IET Lucknow.
                     </Description>
                 </HeadingLine>
-                <UploadForm/>
+                {/* <UploadForm/> */}
                 <ImageGrid setSelectedImg = {setSelectedImg}/>
                 { selectedImg && <Modal selectedImg = {selectedImg} setSelectedImg = {setSelectedImg} /> }
             </Content>
+            <Footer/>
         </Container>
     )
 }
@@ -36,24 +38,25 @@ const Container = styled.section`
 `;
 
 const Content = styled.div`
-    margin-bottom:10vw;
+    margin-bottom:0vw;
     width:100%;
     position: relative;
-    min-height: 100vh;
+    //min-height: 100vh;
     color:black;
     display: flex;
     flex-direction: column;
     padding: 80px 80px;
-    height:100%;
+    //height:100%;
 `;
 
 const HeadingLine = styled.div`
-    margin-top:20px;
+    margin-top:5px;
     font-size:50px;
     color:white;
 `;
 const SubMain = styled.div`
-    font-family:CustomFont;
+    font-family:'Parisienne';
+    font-size:150px;
     
 `;
 

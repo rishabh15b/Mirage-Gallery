@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 const ImageGrid = ({ setSelectedImg }) => {
   const { docs } = UseFirestore('images');
   return (
+ 
     <Row>
       {docs && docs.map(doc => (
         
@@ -13,40 +14,41 @@ const ImageGrid = ({ setSelectedImg }) => {
             <motion.img src={doc.url} alt="uploaded pic"
             initial = {{opacity:0}}
             animate = {{opacity:1}}
-            transition = {{delay:1}} />
+            transition = {{delay:0}}  />
           </Column>
        
       ))}
     </Row>
+
   )
 }
 
+
+
 const Row = styled.section`  
   
-  //flex-wrap: wrap;
-  
-  
-  padding: 30px;
-  margin-top:20px;
+  padding: 0px;
+  margin-top:30px;
   display: grid;
-  grid-template-columns: 5fr 5fr 5fr 5fr ;
-  grid-gap: 50px;
-
+  grid-template-columns: 18fr 21fr 17fr 19fr ;
+  grid-gap: 30px;
+  
 `;
 
 const Column = styled(motion.div)`   
   overflow: hidden;
   height: 0;
-  padding: 50% 0;
+  padding-block:40% 35% ;
   /* padding controls height, will always be perfectly square regardless of width */
   position: relative;
   opacity: 0.8;
 
   img{
-  border: 10px  black;
-  min-width: 100%;
-  min-height: 100%;
-  max-width: 150%;
+  border: 6px solid whitesmoke;
+  /* min-width: 100%;
+  min-height: 100%; */
+  width:100%;
+  height:100%;
   position: absolute;
   top: 0;
   left: 0;
